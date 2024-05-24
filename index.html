@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rainverse Wiki Image Downscaler</title>
+<link rel="stylesheet" href="index.css">
+<script defer src="index.js"></script>
+</head>
+
+<body>
+<h2>Rainverse Wiki Image Downscaler</h2>
+<p>This is a tool for the <a href="https://rainverse.wiki">Rainverse Wiki</a> to downscale images according to <a href="https://en.wikipedia.org/wiki/Wikipedia:Non-free_content#Image_resolution">Wikipedia's requirements</a>.</p>
+<p>Created by <a href="https://meta.miraheze.org/wiki/User:BlankEclair">BlankEclair</a> and open sourced under the MIT license on <a href="https://git.average.name/BlankEclair/rvw-image-downscaler">Average Codestuff</a> and <a href="https://github.com/BlankEclair/rvw-image-downscaler">Github</a>.</p>
+<p id="firefoxNote" class="hide">Note for Firefox users with privacy.resistFingerprinting enabled: This site uses the Canvas APIs, which means that downloaded images will be garbled by default. <button id="activateCanvasPermissionPopup">Click here</button> to activate the permission popup.</p>
+
+<hr>
+
+<noscript><p>This tool requires Javascript since all processing is done client-side.</p></noscript>
+
+<div id="errorBox" class="hide">An error occured: <pre id="errorPre"></pre></div>
+
+<input disabled type="file" name="imageInput" accept="image/*">
+<button disabled id="downloadDestinationImage">Download downscaled image</button>
+<span id="sourceImageMetadata"></span>
+<span id="destinationImageMetadata"></span>
+
+<canvas id="destinationImage"></canvas>
+</body>
+</html>

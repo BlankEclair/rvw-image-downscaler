@@ -1,0 +1,38 @@
+html {
+    font-family: sans-serif;
+    overflow-wrap: anywhere;
+}
+pre {
+    white-space: pre-wrap;
+}
+.hide {
+    display: none;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+}
+p {
+    margin: 0;
+}
+hr {
+    margin: 1em 0;
+}
+
+#errorBox {
+    background-color: pink;
+    color: black;
+    border: 2px red dotted;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
+
+#sourceImageMetadata, #destinationImageMetadata, #downloadDestinationImage {
+    display: block;
+}
+
+/* Fix elements going off-viewport */
+[name="imageInput"], canvas {
+    max-width: 100%;
+}

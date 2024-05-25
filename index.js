@@ -53,17 +53,24 @@ function handleImageInImageInput(autoDownload) {
         // https://en.wikipedia.org/wiki/Wikipedia:Non-free_content#Image_resolution
         let newWidth = Math.floor(Math.sqrt(MAX_MEGAPIXELS * image.width / image.height));
         let newHeight = Math.floor(image.height * newWidth / image.width);
-        destinationImageMetadata.innerText = `Downscaled image resolution: ${newWidth}x${newHeight}`;
 
-        destinationImage.width = newWidth;
-        destinationImage.height = newHeight;
-        destinationImage.getContext("2d").drawImage(image, 0, 0, newWidth, newHeight);
+        return createImageBitmap(imageInput.files[0], {
+            resizeWidth: newWidth,
+            resizeHeight: newHeight,
+            resizeQuality: "high",
+        });
+    }).then((image) => {
+        destinationImageMetadata.innerText = `Downscaled image resolution: ${image.width}x${image.height}`;
+
+        destinationImage.width = image.width;
+        destinationImage.height = image.height;
+        destinationImage.getContext("2d").drawImage(image, 0, 0);
 
         downloadDestinationImage.disabled = false;
         if (autoDownload) {
             initiateDownload();
         }
-    }, (error) => {
+    }).catch((error) => {
         handleError(error);
     });
 }

@@ -60,6 +60,10 @@ function handleImageInImageInput(autoDownload) {
             resizeQuality: "high",
         });
     }).then((image) => {
+        if (!image) {
+            return;
+        }
+
         destinationImageMetadata.innerText = `Downscaled image resolution: ${image.width}x${image.height}`;
 
         destinationImage.width = image.width;

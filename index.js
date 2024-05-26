@@ -51,8 +51,8 @@ function handleImageInImageInput(autoDownload) {
         }
 
         // https://en.wikipedia.org/wiki/Wikipedia:Non-free_content#Image_resolution
-        let newWidth = Math.floor(Math.sqrt(MAX_MEGAPIXELS * image.width / image.height));
-        let newHeight = Math.floor(image.height * newWidth / image.width);
+        let newWidth = Math.trunc(Math.sqrt(MAX_MEGAPIXELS * image.width / image.height));
+        let newHeight = Math.trunc(image.height * newWidth / image.width);
 
         return createImageBitmap(imageInput.files[0], {
             resizeWidth: newWidth,
